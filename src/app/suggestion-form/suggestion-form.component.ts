@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-suggestion-form',
@@ -6,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./suggestion-form.component.css'],
 })
 export class SuggestionFormComponent implements OnInit {
-  constructor() {}
+  suggestionForm: NgForm;
 
-  ngOnInit(): void {}
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.suggestionForm = this.fb.group({
+      restaurant: ['', Validators.required],
+    });
+  }
 
   addRestaurant() {
-    console.log('addRestaurant called');
+    console.log('this.suggestionForm.value', this.suggestionForm.value);
+    this.suggestionForm.reset();
   }
 }
