@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RestaurantService } from './../services/restaurant.service';
 
 @Component({
   selector: 'app-suggestion-form',
@@ -7,9 +8,10 @@ import { NgForm, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./suggestion-form.component.css'],
 })
 export class SuggestionFormComponent implements OnInit {
-  suggestionForm: NgForm;
+  suggestionForm;
+  message = '';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private rs: RestaurantService) {}
 
   ngOnInit(): void {
     this.suggestionForm = this.fb.group({
@@ -17,8 +19,16 @@ export class SuggestionFormComponent implements OnInit {
     });
   }
 
-  addRestaurant() {
+  async addRestaurant() {
     console.log('this.suggestionForm.value', this.suggestionForm.value);
+    const result = await this.rs.createRestaurant(
+      this.suggestionForm.value.restaurant
+    );
+    console.log('result', result);
+    if ((result as any).jT) {
+      this.message = `Restaurant créé avec l'id ${(result as any).jT.clientId}`;
+    }
+
     this.suggestionForm.reset();
   }
 }

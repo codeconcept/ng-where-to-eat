@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hellofirestore-d7c0c": {
+      "hosting": {
+        "where-to-eat": [
+          "hellofirestore-d7c0c"
+        ]
+      }
+    }
+  }
+}

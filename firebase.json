@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "where-to-eat",
+      "public": "dist/where-to-eat",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
+// Firebase imports
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import firestoreConfig from './my-firestore';
+
 @NgModule({
   declarations: [AppComponent, SuggestionFormComponent],
   imports: [
@@ -19,6 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(firestoreConfig),
+    AngularFirestoreModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
