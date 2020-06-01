@@ -18,5 +18,10 @@ export class RestaurantService {
     return this.afs.collection<Restaurant>('wte-restaurants');
   }
 
-  voteForRestaurant(restaurantId) {}
+  voteForRestaurant(restaurant) {
+    return this.afs.doc(`wte-restaurants/${restaurant.id}`).update({
+      ...restaurant,
+      votes: restaurant.votes + 1,
+    });
+  }
 }

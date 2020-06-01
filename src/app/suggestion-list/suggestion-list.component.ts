@@ -23,7 +23,9 @@ export class SuggestionListComponent implements OnInit {
     });
   }
 
-  vote(id) {
-    console.log(id);
+  vote(restaurant, id) {
+    const restaurantWithId = { ...restaurant, id };
+    console.log('restaurantWithId', restaurantWithId);
+    this.rs.voteForRestaurant(restaurantWithId);
   }
 }
