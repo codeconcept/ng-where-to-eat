@@ -46,4 +46,8 @@ export class RestaurantRankingComponent implements OnChange {
         : `${restaurant.votes} votes pour ${restaurant.name}`;
     return label;
   }
+
+  onSelectionChange(event) {
+    console.log(event.option.value);
+  }
 }

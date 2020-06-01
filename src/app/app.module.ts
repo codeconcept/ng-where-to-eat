@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
@@ -20,7 +21,12 @@ import { SuggestionListComponent } from './suggestion-list/suggestion-list.compo
 import { RestaurantRankingComponent } from './restaurant-ranking/restaurant-ranking.component';
 
 @NgModule({
-  declarations: [AppComponent, SuggestionFormComponent, SuggestionListComponent, RestaurantRankingComponent],
+  declarations: [
+    AppComponent,
+    SuggestionFormComponent,
+    SuggestionListComponent,
+    RestaurantRankingComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +37,7 @@ import { RestaurantRankingComponent } from './restaurant-ranking/restaurant-rank
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

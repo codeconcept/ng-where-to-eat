@@ -1,9 +1,16 @@
 <h3>Résultats</h3>
 
 <div *ngIf="sortedRestaurants">
-  <ul>
-    <li *ngFor="let restau of sortedRestaurants">
+  <mat-selection-list
+    #restauList
+    [multiple]="false"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    <mat-list-option
+      *ngFor="let restau of sortedRestaurants"
+      [value]="restau.id"
+    >
       {{ setRankLabel(restau) }}
-    </li>
-  </ul>
+    </mat-list-option>
+  </mat-selection-list>
 </div>
