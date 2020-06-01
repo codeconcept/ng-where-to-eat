@@ -4,6 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { RestaurantService } from './../services/restaurant.service';
 
 @Component({
   selector: 'app-modal-component',
@@ -24,6 +25,7 @@ import {
 })
 export class ModalComponent {
   constructor(
+    private rs: RestaurantService,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
@@ -32,9 +34,9 @@ export class ModalComponent {
     this.dialogRef.close('nope');
   }
 
-  delete() {
-    // TODO delete
-    this.dialogRef.close('delete soon');
+  async delete() {
     console.log('TODO delete ', this.data);
+    const result = await this.rs.deleteRestaurant(this.data);
+    this.dialogRef.close(result);
   }
 }

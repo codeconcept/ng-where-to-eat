@@ -26,4 +26,10 @@ export class RestaurantService {
       votes: restaurant.votes + 1,
     });
   }
+
+  deleteRestaurant(restaurant) {
+    return this.afs
+      .doc<Restaurant>(`wte-restaurants/${restaurant.id}`)
+      .delete();
+  }
 }
