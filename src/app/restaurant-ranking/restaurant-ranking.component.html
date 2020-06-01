@@ -8,7 +8,8 @@
   >
     <mat-list-option
       *ngFor="let restau of sortedRestaurants"
-      [value]="restau.id"
+      [value]="restau"
+      (click)="openConfirmDialog(restau)"
     >
       {{ setRankLabel(restau) }}
     </mat-list-option>
