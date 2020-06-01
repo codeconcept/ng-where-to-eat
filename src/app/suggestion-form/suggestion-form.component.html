@@ -5,7 +5,14 @@
       <input matInput formControlName="name" />
     </mat-form-field>
     <br />
-    <button mat-raised-button color="primary" type="submit">ajouter</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!suggestionForm.valid"
+    >
+      ajouter
+    </button>
   </form>
   {{ message }}
 </div>

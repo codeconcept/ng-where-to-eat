@@ -3,7 +3,7 @@
 <div *ngIf="sortedRestaurants">
   <ul>
     <li *ngFor="let restau of sortedRestaurants">
-      {{ restau.votes }} votes pour {{ restau.name }}
+      {{ setRankLabel(restau) }}
     </li>
   </ul>
 </div>

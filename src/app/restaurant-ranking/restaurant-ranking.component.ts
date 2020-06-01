@@ -38,4 +38,12 @@ export class RestaurantRankingComponent implements OnChange {
     }
     return 0;
   }
+
+  setRankLabel(restaurant) {
+    const label =
+      restaurant.votes <= 1
+        ? `${restaurant.votes} vote pour ${restaurant.name}`
+        : `${restaurant.votes} votes pour ${restaurant.name}`;
+    return label;
+  }
 }
