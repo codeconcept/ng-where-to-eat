@@ -3,6 +3,14 @@
 </div>
 
 <div #restauList *ngFor="let restau of restaurants$ | async">
+  {{ restau | json }}
   <div>Nom : {{ restau.name }}</div>
   <div>Ajouté le : {{ restau.createdAt | date: "dd/MM/yyyy à HH:mm" }}</div>
+  <div>
+    <button mat-stroked-button color="primary" (click)="vote(restau.id)">
+      +
+    </button>
+    {{ restau.votes }}
+  </div>
+  <br />
 </div>

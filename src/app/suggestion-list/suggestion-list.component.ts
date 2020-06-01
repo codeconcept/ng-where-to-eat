@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { RestaurantService } from './../services/restaurant.service';
 import { Restaurant } from './../models/restaurant';
@@ -17,6 +18,12 @@ export class SuggestionListComponent implements OnInit {
 
   async ngOnInit(): void {
     this.restaurantsCollection = await this.rs.readRestaurants();
-    this.restaurants$ = this.restaurantsCollection.valueChanges();
+    this.restaurants$ = this.restaurantsCollection.valueChanges({
+      idField: 'id',
+    });
+  }
+
+  vote(id) {
+    console.log(id);
   }
 }
