@@ -17,9 +17,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import firestoreConfig from './my-firestore';
 import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
+import { RestaurantRankingComponent } from './restaurant-ranking/restaurant-ranking.component';
 
 @NgModule({
-  declarations: [AppComponent, SuggestionFormComponent, SuggestionListComponent],
+  declarations: [AppComponent, SuggestionFormComponent, SuggestionListComponent, RestaurantRankingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

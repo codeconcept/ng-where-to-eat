@@ -1,0 +1,9 @@
+<h3>Résultats</h3>
+
+<div *ngIf="sortedRestaurants">
+  <ul>
+    <li *ngFor="let restau of sortedRestaurants">
+      {{ restau.votes }} votes pour {{ restau.name }}
+    </li>
+  </ul>
+</div>
