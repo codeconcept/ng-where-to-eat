@@ -16,9 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import firestoreConfig from './my-firestore';
+import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
 
 @NgModule({
-  declarations: [AppComponent, SuggestionFormComponent],
+  declarations: [AppComponent, SuggestionFormComponent, SuggestionListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

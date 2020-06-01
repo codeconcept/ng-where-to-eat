@@ -2,10 +2,14 @@
   <form [formGroup]="suggestionForm" (ngSubmit)="addRestaurant()">
     <mat-form-field appearance="fill">
       <mat-label>Restaurant</mat-label>
-      <input matInput formControlName="restaurant" />
+      <input matInput formControlName="name" />
     </mat-form-field>
     <br />
     <button mat-button color="primary" type="submit">ajouter</button>
   </form>
   {{ message }}
+</div>
+
+<div>
+  <app-suggestion-list></app-suggestion-list>
 </div>

@@ -15,18 +15,18 @@ export class SuggestionFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.suggestionForm = this.fb.group({
-      restaurant: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
 
   async addRestaurant() {
     console.log('this.suggestionForm.value', this.suggestionForm.value);
     const result = await this.rs.createRestaurant(
-      this.suggestionForm.value.restaurant
+      this.suggestionForm.value.name
     );
     console.log('result', result);
     if ((result as any).jT) {
-      this.message = `Restaurant créé avec l'id ${(result as any).jT.clientId}`;
+      this.message = `Restaurant créé avec l'id ${(result as any).id}`;
     }
 
     this.suggestionForm.reset();
