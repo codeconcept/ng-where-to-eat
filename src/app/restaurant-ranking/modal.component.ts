@@ -27,7 +27,7 @@ export class ModalComponent {
   constructor(
     private rs: RestaurantService,
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data
   ) {}
 
   onNoClick(): void {

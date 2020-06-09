@@ -1,19 +1,20 @@
-import { Component, OnChange, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Restaurant } from './../models/restaurant';
 import { ModalComponent } from './modal.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-restaurant-ranking',
   templateUrl: './restaurant-ranking.component.html',
   styleUrls: ['./restaurant-ranking.component.css'],
 })
-export class RestaurantRankingComponent implements OnChange {
+export class RestaurantRankingComponent implements OnChanges {
   @Input()
   restaurants$;
-  sortedRestaurants: Observable<Restaurant[]>;
+  sortedRestaurants: Restaurant[];
   modalResult;
 
   constructor(public dialog: MatDialog) {}
@@ -41,7 +42,7 @@ export class RestaurantRankingComponent implements OnChange {
     changes.restaurants$.currentValue
       .pipe(
         map((restaurants) => {
-          const sortResult = restaurants.sort(this.sortByScore);
+          const sortResult = (restaurants as Restaurant[]).sort(this.sortByScore);
           this.sortedRestaurants = sortResult;
         })
       )

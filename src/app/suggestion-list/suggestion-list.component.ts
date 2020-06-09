@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { RestaurantService } from './../services/restaurant.service';
 import { Restaurant } from './../models/restaurant';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-suggestion-list',
@@ -16,7 +17,7 @@ export class SuggestionListComponent implements OnInit {
 
   constructor(private rs: RestaurantService) {}
 
-  async ngOnInit(): void {
+  async ngOnInit() {
     this.restaurantsCollection = await this.rs.readRestaurants();
     this.restaurants$ = this.restaurantsCollection.valueChanges({
       idField: 'id',
