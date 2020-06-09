@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class RestaurantRankingComponent implements OnChanges {
   @Input()
-  restaurants$;
+  restaurants: Restaurant[];
   sortedRestaurants: Restaurant[];
   modalResult;
 
@@ -36,27 +36,21 @@ export class RestaurantRankingComponent implements OnChanges {
 
   ngOnChanges(changes): void {
     console.log('changes', changes);
-    if (!changes.restaurants$.currentValue) {
+    if (!changes.restaurants.currentValue) {
       return;
     }
-    changes.restaurants$.currentValue
-      .pipe(
-        map((restaurants) => {
-          const sortResult = (restaurants as Restaurant[]).sort(this.sortByScore);
-          this.sortedRestaurants = sortResult;
-        })
-      )
-      .subscribe();
+    this.sortedRestaurants = changes.restaurants.currentValue.sort(this.sortByScore)
   }
 
   sortByScore(a, b) {
     // a.votes > b.votes orders vote desc
     if (a.votes > b.votes) {
       return -1;
-    } else {
+    } else if(a.votes < b.votes) {
       return 1;
+    } else {
+      return 0;
     }
-    return 0;
   }
 
   setRankLabel(restaurant) {

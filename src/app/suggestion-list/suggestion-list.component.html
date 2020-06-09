@@ -1,11 +1,11 @@
-<app-restaurant-ranking [restaurants$]="restaurants$"></app-restaurant-ranking>
+<app-restaurant-ranking [restaurants]="restaurants"></app-restaurant-ranking>
 
-<div *ngIf="!(restaurants$ | async); else restauList">
+<div *ngIf="restaurants.length === 0; else restauList">
   loading...
 </div>
 
 <ng-template #restauList>
-  <div *ngFor="let restau of restaurants$ | async">
+  <div *ngFor="let restau of restaurants">
     <div>Nom : {{ restau.name }}</div>
     <div>Ajouté le : {{ restau.createdAt | date: "dd/MM/yyyy à HH:mm" }}</div>
     <div>
