@@ -32,4 +32,8 @@ export class SuggestionListComponent implements OnInit, OnDestroy {
     console.log('restaurantWithId', restaurantWithId);
     this.rs.voteForRestaurant(restaurantWithId);
   }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }
